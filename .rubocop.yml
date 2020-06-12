@@ -1,0 +1,10 @@
+inherit_from: .rubocop_todo.yml
+# アスキー以外のコメントを許可（日本語でのコメントが可能になる）
+AsciiComments:
+  Enabled: false
+# クラスにコメントを残さないでも良い
+Documentation:
+  Enabled: false
+#ABCMetricSizeのチェックの基準値を20にする
+Metrics/AbcSize:
+  Max: 20

@@ -1,0 +1,19 @@
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+# blockの長さが任意のものも許可する
+Metrics/BlockLength:
+  Exclude:
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'config/environments/production.rb'
+    - 'test/**/*'
+
+# 一行の長さが任意のものも許可する
+Layout/LineLength:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'db/seeds.rb'

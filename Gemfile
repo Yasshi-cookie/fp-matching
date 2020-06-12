@@ -48,6 +48,8 @@ group :development do
   # rubocop
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  # pre-commit
+  gem 'pre-commit', require: false
 end
 
 group :test do

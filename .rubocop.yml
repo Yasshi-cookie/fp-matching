@@ -5,7 +5,7 @@ AsciiComments:
 # クラスにコメントを残さないでも良い
 Documentation:
   Enabled: false
-#ABCMetricSizeのチェックの基準値を20にする
+# ABCMetricSizeのチェックの基準値を20にする
 Metrics/AbcSize:
   Max: 20
 
@@ -16,3 +16,7 @@ AllCops:
     - vendor/**/*
     - db/schema.rb
     - tmp/**/*
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/**/*'

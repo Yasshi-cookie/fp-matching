@@ -1,4 +1,12 @@
 inherit_from: .rubocop_todo.yml
+# 下記はチェック対象から除外する
+AllCops:
+  Exclude:
+    - node_modules/**/*
+    - vendor/**/*
+    - db/schema.rb
+    - tmp/**/*
+    - bin/**/*
 # アスキー以外のコメントを許可（日本語でのコメントが可能になる）
 AsciiComments:
   Enabled: false
@@ -8,15 +16,3 @@ Documentation:
 # ABCMetricSizeのチェックの基準値を20にする
 Metrics/AbcSize:
   Max: 20
-
-# 自動生成されるものはチェック対象から除外する
-AllCops:
-  Exclude:
-    - node_modules/**/*
-    - vendor/**/*
-    - db/schema.rb
-    - tmp/**/*
-
-Style/MixinUsage:
-  Exclude:
-    - 'bin/**/*'

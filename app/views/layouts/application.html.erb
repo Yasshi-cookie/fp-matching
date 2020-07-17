@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <div class="container">
+      <!-- 顧客アカウント登録成功時にメッセージを表示する -->
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

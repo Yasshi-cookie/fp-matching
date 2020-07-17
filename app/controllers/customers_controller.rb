@@ -7,7 +7,12 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    redirect_to root_path if @customer.save
+    if @customer.save
+      flash[:success] = '登録完了しました！'
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   private

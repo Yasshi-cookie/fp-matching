@@ -5,11 +5,15 @@ class SessionsController < ApplicationController
 
   def create
     customer = Customer.find_by(email: params[:session][:email].downcase)
+
     if customer&.authenticate(params[:session][:password])
       log_in customer
       redirect_to root_path
+    elsif !!customer
+      flash.now[:danger] = 'パスワードが間違っています'
+      render 'new'
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'メールアドレスが間違っています'
       render 'new'
     end
   end

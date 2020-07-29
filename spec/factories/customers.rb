@@ -2,8 +2,7 @@
 
 FactoryBot.define do
   factory :customer do
-    name { 'MyString' }
-    email { 'MyString' }
-    password_digest { 'MyString' }
+    name { 'Example User' }
+    sequence(:email) { |n| "customer_#{n}@example.com" }
   end
 end

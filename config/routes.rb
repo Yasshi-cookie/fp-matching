@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'sessions/new'
+  root 'home_pages#home'
+  get 'home_pages/home'
+  delete '/logout', to: 'sessions#destroy'
+  resources :customers, only: %i[new create]
+  resources :sessions, only: %i[new create]
 end

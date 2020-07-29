@@ -11,8 +11,8 @@ RSpec.describe Customer, type: :model do
   describe 'validations' do
     describe 'validate presence of password' do
       it 'is invalid with a blank password' do
-        user = build(:user, password: ' ' * 6)
-        expect(user).to_not be_valid
+        new_customer = build(:customer, password: ' ' * 6)
+        expect(new_customer).to_not be_valid
       end
     end
     it { is_expected.to validate_presence_of(:name) }
@@ -38,21 +38,21 @@ RSpec.describe Customer, type: :model do
     describe 'validate unqueness of email' do
       let!(:customer) { create(:customer, email: 'original@example.com') }
       it 'is invalid with a duplicate email' do
-        customer = build(:customer, email: 'original@example.com')
-        expect(customer).to_not be_valid
+        new_customer = build(:customer, email: 'original@example.com')
+        expect(new_customer).to_not be_valid
       end
       it 'is case insensitive in email' do
-        customer = build(:customer, email: 'ORIGINAL@EXAMPLE.COM')
-        expect(customer).to_not be_valid
+        new_customer = build(:customer, email: 'ORIGINAL@EXAMPLE.COM')
+        expect(new_customer).to_not be_valid
       end
     end
 
     # before_saveのテスト
     describe 'before_save' do
       describe '#email_downcase' do
-        let!(:user) { create(:user, email: 'ORIGINAL@EXAMPLE.COM') }
+        let!(:customer) { create(:customer, email: 'ORIGINAL@EXAMPLE.COM') }
         it 'makes email to low case' do
-          expect(user.reload.email).to eq 'original@example.com'
+          expect(customer.reload.email).to eq 'original@example.com'
         end
       end
     end

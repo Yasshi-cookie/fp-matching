@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'planner_sessions/new'
-  get 'planner_sessions/create'
   root 'home_pages#home'
 
   get 'sessions/new'
@@ -11,4 +9,5 @@ Rails.application.routes.draw do
   resources :customers, only: %i[new create]
   resources :sessions, only: %i[new create]
   resources :planners, only: %i[new create]
+  resources :planner_sessions, only: %i[new create]
 end

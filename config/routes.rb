@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'planner_sessions/new'
+  get 'planner_sessions/create'
   root 'home_pages#home'
 
   get 'sessions/new'

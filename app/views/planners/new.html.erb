@@ -1,2 +1,25 @@
-<h1>Planners#new</h1>
-<p>Find me in app/views/planners/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<h1>FP情報登録ページ</h1>
+<p>ここにプランナーの名前、メールアドレス、パスワードを入力してしてください。</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: @planner, url: planners_path, local: true do |f| %>
+      <%= render 'shared/error_messages_planner' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

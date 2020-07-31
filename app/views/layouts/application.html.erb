@@ -17,14 +17,14 @@
             <% if logged_in? %>
               <%= link_to "Log out", logout_path, method: :delete %>
             <% else %>
-              <li><%= link_to "Log in", 'sessions/new' %></li>
+              <%= link_to "Log in", 'sessions/new' %>
             <% end %>
           </ul>
         </nav>
       </div>
     </header>
     <div class="container">
-      <!-- 顧客アカウント登録成功時にメッセージを表示する -->
+      <!-- Customer/Plannerアカウント登録成功時にメッセージを表示する -->
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>

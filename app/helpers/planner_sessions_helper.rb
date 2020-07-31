@@ -7,7 +7,7 @@ module PlannerSessionsHelper
     @current_planner ||= Planner.find_by(id: session[:planner_id]) if session[:planner_id]
   end
 
-  def logged_in?
+  def planner_logged_in?
     !current_planner.nil?
   end
 end

@@ -10,4 +10,9 @@ module PlannerSessionsHelper
   def planner_logged_in?
     !current_planner.nil?
   end
+
+  def planner_log_out
+    session.delete(:planner_id)
+    @current_planner = nil
+  end
 end

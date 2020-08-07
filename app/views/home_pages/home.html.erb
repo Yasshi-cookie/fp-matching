@@ -9,9 +9,16 @@
       <h2>
         FP（ファイナンシャルプランナー）にお金の相談をしてみませんか？
       </h2>
-
-      <%= link_to "お客様用アカウント登録ページ", 'customers/new', class: "btn btn-lg btn-primary" %>
-      <%= link_to "FP用アカウント登録ページ", 'planners/new', class: "btn btn-lg btn-primary" %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= link_to "お客様用アカウント登録ページ", 'customers/new', class: "btn btn-lg btn-primary" %>
+          <%= link_to "お客様用ログインページ", 'sessions/new', class: "btn btn-lg btn-primary" %>
+        </div>
+        <div class="col-sm-6">
+          <%= link_to "FP用アカウント登録ページ", 'planners/new', class: "btn btn-lg btn-primary" %>
+          <%= link_to "FP用ログインページ", 'planner_sessions/new', class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

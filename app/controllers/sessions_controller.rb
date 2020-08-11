@@ -9,11 +9,8 @@ class SessionsController < ApplicationController
     if customer&.authenticate(params[:session][:password])
       log_in customer
       redirect_to customers_mypage_path
-    elsif !customer.nil?
-      flash.now[:danger] = 'パスワードが間違っています'
-      render 'new'
     else
-      flash.now[:danger] = 'メールアドレスが間違っています'
+      flash.now[:danger] = 'メールアドレスかパスワードが間違っています'
       render 'new'
     end
   end

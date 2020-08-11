@@ -6,7 +6,7 @@ class PlannerSessionsController < ApplicationController
 
     if planner&.authenticate(params[:session][:password])
       log_in planner
-      redirect_to root_path
+      redirect_to planners_mypage_path
     elsif !planner.nil?
       flash.now[:danger] = 'パスワードが間違っています'
       render 'new'

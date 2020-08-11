@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create]
   resources :planners, only: %i[new create]
   resources :planner_sessions, only: %i[new create]
+  namespace :customers do
+    resource :mypage, only: %i[show]
+  end
+  namespace :planners do
+    resource :mypage, only: %i[show]
+  end
 end

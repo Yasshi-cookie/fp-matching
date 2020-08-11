@@ -6,6 +6,7 @@ class PlannerSessionsController < ApplicationController
 
     if planner&.authenticate(params[:session][:password])
       log_in planner
+      flash[:success] = 'ログイン成功しました'
       redirect_to planners_mypage_path
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています'

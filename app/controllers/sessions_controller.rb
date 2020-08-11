@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     if customer&.authenticate(params[:session][:password])
       log_in customer
       redirect_to customers_mypage_path
+      flash[:success] = 'ログイン成功しました'
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています'
       render 'new'

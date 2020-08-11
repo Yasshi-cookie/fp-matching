@@ -10,6 +10,7 @@ class PlannersController < ApplicationController
       flash[:success] = '登録完了しました！'
       redirect_to root_path
     else
+      flash.now[:danger] = @planner.errors.full_messages.join('。')
       render 'new'
     end
   end

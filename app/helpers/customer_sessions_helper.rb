@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SessionsHelper
+module CustomerSessionsHelper
   def log_in(customer)
     session[:customer_id] = customer.id
   end

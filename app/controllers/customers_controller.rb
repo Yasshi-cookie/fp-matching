@@ -5,10 +5,6 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
-  def show
-    @customer = Customer.find(params[:id])
-  end
-
   def create
     @customer = Customer.new(customer_params)
     if @customer.save

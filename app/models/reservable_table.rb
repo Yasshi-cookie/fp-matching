@@ -1,0 +1,2 @@
+class ReservableTable < ApplicationRecord
+end

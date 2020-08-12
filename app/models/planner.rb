@@ -11,4 +11,5 @@ class Planner < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   has_secure_password validations: true
+  has_many :reservable_tables, dependent: :destroy
 end

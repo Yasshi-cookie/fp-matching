@@ -1,4 +1,6 @@
 class TimeTable < ActiveHash::Base
+  has_many :reservable_tables, dependent: :destroy
+
   self.data = [
     {id: 1, start_time: 10:00, end_time: 10:30},
     {id: 2, start_time: 10:30, end_time: 11:00},

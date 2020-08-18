@@ -6,6 +6,7 @@ class CreateReservableTables < ActiveRecord::Migration[6.0]
       t.date :date, null: false
 
       t.timestamps
+      t.index %i[planner_id time_table_id date], unique: true
     end
   end
 end

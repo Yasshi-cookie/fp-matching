@@ -25,13 +25,13 @@ class TimeTable < ActiveHash::Base
   end
 
   def available?(date)
+    return true if date.on_weekday?
+
     if date.saturday?
       # 11時〜15時
       id.between?(3, 10)
-    elsif date.sunday?
-      false
     else
-      true
+      false
     end
   end
 end

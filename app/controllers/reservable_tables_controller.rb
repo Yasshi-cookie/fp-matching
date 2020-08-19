@@ -5,8 +5,8 @@ class ReservableTablesController < ApplicationController
 
   def create
     @reservable_table = current_planner
-                          .reservable_tables
-                          .build(reservable_table_params)
+                        .reservable_tables
+                        .build(reservable_table_params)
     if @reservable_table.save
       flash[:success] = '空き時間を登録しました'
       redirect_to planners_mypage_path

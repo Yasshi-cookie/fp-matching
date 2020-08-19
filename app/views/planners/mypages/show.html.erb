@@ -1,5 +1,5 @@
 <% provide(:title, 'Planner page') %>
-<h1>FPのマイページ</h1>
+<h1><%=current_planner.name if current_planner.present?%>さんのマイページ</h1>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>

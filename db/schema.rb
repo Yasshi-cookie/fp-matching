@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_060849) do
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["planner_id", "time_table_id", "date"], name: "index_reservable_tables_on_planner_id_and_time_table_id_and_date", unique: true
   end
 
 end

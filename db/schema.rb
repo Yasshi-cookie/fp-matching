@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_095925) do
+ActiveRecord::Schema.define(version: 2020_08_12_060849) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", limit: 50, null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_07_31_095925) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest", null: false
+  end
+
+  create_table "reservable_tables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "planner_id", null: false
+    t.integer "time_table_id", null: false
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planner_id", "time_table_id", "date"], name: "index_reservable_tables_on_planner_id_and_time_table_id_and_date", unique: true
   end
 
 end

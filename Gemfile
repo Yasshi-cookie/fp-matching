@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use active hash
 gem 'active_hash', '~> 2.3.0'
+gem 'business_time'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

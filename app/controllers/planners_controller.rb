@@ -6,7 +6,7 @@ class PlannersController < ApplicationController
   def create
     @planner = Planner.new(planner_params)
     if @planner.save
-      log_in @planner
+      planner_log_in @planner
       flash[:success] = '登録完了しました！'
       redirect_to root_path
     else

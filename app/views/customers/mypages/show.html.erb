@@ -1,5 +1,5 @@
 <% provide(:title, 'Customer page') %>
-<h1>予約一覧</h1>
+<h1><%= current_customer.name if current_customer.present? %>さんのマイページ</h1>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>

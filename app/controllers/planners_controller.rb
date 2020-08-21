@@ -17,7 +17,7 @@ class PlannersController < ApplicationController
 
   def show
     @planner = Planner.find(params[:id])
-    @reservable_tables = @planner.reservable_tables
+    @reservable_tables = @planner.reservable_tables.where('date >= ?', Date.current)
   end
 
   def index

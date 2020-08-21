@@ -15,6 +15,15 @@ class PlannersController < ApplicationController
     end
   end
 
+  def show
+    @planner = Planner.find(params[:id])
+    @reservable_tables = @planner.reservable_tables
+  end
+
+  def index
+    @planners = Planner.all
+  end
+
   private
 
   def planner_params

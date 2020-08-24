@@ -2,6 +2,7 @@ class ReservableTable < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :time_table
   belongs_to :planner
+  has_one :reservation, dependent: :destroy
 
   validates :date, presence: true
   validates :time_table_id, presence: true, uniqueness: { scope: %i[date planner_id] }

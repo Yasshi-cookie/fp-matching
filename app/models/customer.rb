@@ -10,5 +10,6 @@ class Customer < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
 
+  has_many :reservation, dependent: :destroy
   has_secure_password validations: true
 end

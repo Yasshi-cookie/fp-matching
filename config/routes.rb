@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'reservations/create'
   root 'home_pages#home'
 
   get 'home_pages/home'

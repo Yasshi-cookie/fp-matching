@@ -1,14 +1,31 @@
 <% provide(:title, 'Planner page') %>
 <h1><%=current_planner.name if current_planner.present?%>さんのマイページ</h1>
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <li>
-        <%= link_to "Log out", planner_logout_path, method: :delete %>
-      </li>
-    </nav>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Log out", planner_logout_path, method: :delete %></li>
+    </ul>
   </div>
-</header>
+</nav>
 <div class="center">
 <%= link_to "面談可能な日時を登録する", new_reservable_table_path, class: "btn btn-lg btn-primary" %>
+</div>
+<br>
+<div class="center">
+<h3>予約中の面談</h3>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="list-group">
+      <% if @reservable_tables.present? %>
+        <% @reservable_tables.each do |reservable_table| %>
+          <li class="list-group-item"><%= reservable_table.reservation.customer.name %></li>
+          <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
+          <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+          <br>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_customer
   def create
     @reservation = current_customer
-                    .reservation
+                    .reservations
                     .build(reservation_params)
     if @reservation.save
       flash[:success] = '面談を予約しました'

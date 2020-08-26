@@ -42,9 +42,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_084902) do
     t.bigint "reservable_table_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id", "reservable_table_id"], name: "index_reservations_on_customer_id_and_reservable_table_id", unique: true
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
-    t.index ["reservable_table_id"], name: "index_reservations_on_reservable_table_id"
+    t.index ["reservable_table_id"], name: "index_reservations_on_reservable_table_id", unique: true
   end
 
   add_foreign_key "reservations", "customers"

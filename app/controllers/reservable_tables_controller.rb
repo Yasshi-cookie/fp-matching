@@ -1,5 +1,6 @@
 class ReservableTablesController < ApplicationController
   before_action :authenticate_planner
+
   def new
     @reservable_table = ReservableTable.new
   end

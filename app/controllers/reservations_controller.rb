@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_customer
+
   def create
     @reservation = current_customer
                     .reservations

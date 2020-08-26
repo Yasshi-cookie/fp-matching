@@ -3,5 +3,5 @@ class Reservation < ApplicationRecord
   belongs_to :reservable_table
 
   validates :customer_id, presence: true
-  validates :reservable_table_id, presence: true, uniqueness: { scope: :customer_id }
+  validates :reservable_table_id, presence: true, uniqueness: true
 end

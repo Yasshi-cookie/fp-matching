@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete 'planner/logout', to: 'planner_sessions#destroy'
   resources :customers, only: %i[new create]
   resources :sessions, only: %i[new create]
-  resources :planners, only: %i[new create]
+  resources :planners, only: %i[new create show index]
   resources :planner_sessions, only: %i[new create]
   resources :reservable_tables, only: %i[new create]
   namespace :customers do

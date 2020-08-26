@@ -5,7 +5,7 @@ class PlannerSessionsController < ApplicationController
     planner = Planner.find_by(email: params[:session][:email].downcase)
 
     if planner&.authenticate(params[:session][:password])
-      log_in planner
+      planner_log_in planner
       flash[:success] = 'ログイン成功しました'
       redirect_to planners_mypage_path
     else

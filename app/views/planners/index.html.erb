@@ -1,0 +1,10 @@
+<h1>FP一覧</h1>
+<% @planners.each do |planner| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to planner.name, planner_path(planner.id), class: "btn btn-lg btn-light" %></li>
+    </ul>
+  </div>
+</div>
+<% end %>

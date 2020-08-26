@@ -1,5 +1,5 @@
 module PlannerSessionsHelper
-  def log_in(planner)
+  def planner_log_in(planner)
     session[:planner_id] = planner.id
   end
 

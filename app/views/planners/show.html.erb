@@ -1,0 +1,12 @@
+<h1><%= @planner.name %> の空き時間一覧</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="list-group">
+      <% @reservable_tables.each do |reservable_table| %>
+        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
+        <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+        <br>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -3,6 +3,7 @@ class ReservableTablesController < ApplicationController
 
   def new
     @reservable_table = ReservableTable.new
+    @reservable_tables = current_planner.reservable_tables.where('date >= ?', Date.current).order(date: :asc)
   end
 
   def create

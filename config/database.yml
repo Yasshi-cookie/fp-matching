@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: fp_matching_production
-  username: fp_matching
-  password: <%= ENV['FP_MATCHING_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

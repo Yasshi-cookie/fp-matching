@@ -17,7 +17,10 @@ class PlannersController < ApplicationController
 
   def show
     @planner = Planner.find(params[:id])
-    @reservable_tables = @planner.reservable_tables.where('date >= ?', Date.current).order(date: :asc)
+    @reservable_tables = @planner
+                            .reservable_tables.left_joins(:reservation)
+                            .where('date >= ?', Date.current)
+                            .where(reservations: {id: nil}).order(date: :asc)
   end
 
   def index

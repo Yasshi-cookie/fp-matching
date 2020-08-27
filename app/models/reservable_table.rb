@@ -10,6 +10,7 @@ class ReservableTable < ApplicationRecord
   validate :validate_that_reservable_date_is_before_today
 
   before_destroy :prevent_destroy
+
   private
 
   def validate_that_time_table_is_available

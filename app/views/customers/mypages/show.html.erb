@@ -21,8 +21,11 @@
       <% if @reservable_tables.present? %>
         <% @reservable_tables.each do |reservable_table| %>
           <li class="list-group-item"><%= reservable_table.planner.name %></li>
-          <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
-          <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+          <li class="list-group-item">
+          <%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
+          <%= reservable_table.time_table.time_range_text %>
+          <%= link_to "（削除）", reservable_table_path(reservable_table), method: :delete, data:{confirm: "削除しますか？"} %>
+          </li>
           <br>
         <% end %>
       <% end %>

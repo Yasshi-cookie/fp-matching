@@ -1,12 +1,5 @@
 <% provide(:title, 'Planner page') %>
 <h1><%=current_planner.name if current_planner.present?%>さんのマイページ</h1>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Log out", planner_logout_path, method: :delete %></li>
-    </ul>
-  </div>
-</nav>
 <div class="center">
 <%= link_to "面談可能な日時の登録/確認", new_reservable_table_path, class: "btn btn-lg btn-primary" %>
 </div>

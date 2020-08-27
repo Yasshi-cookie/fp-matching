@@ -1,6 +1,13 @@
 <h1>空き時間の登録フォーム</h1>
 <p>下記から空き時間を選択してください</p>
 
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Log out", planner_logout_path, method: :delete %></li>
+    </ul>
+  </div>
+</nav>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @reservable_table, url: reservable_tables_path, method: :post, local: true do |f| %>

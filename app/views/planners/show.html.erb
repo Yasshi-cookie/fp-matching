@@ -5,6 +5,7 @@
       <% @reservable_tables.each do |reservable_table| %>
         <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
         <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+        <li class="list-group-item"><%= link_to "予約する", reservations_path(reservation: {reservable_table_id: reservable_table.id}), method: :post, class: "btn btn-primary" %></li>
         <br>
       <% end %>
     </ul>

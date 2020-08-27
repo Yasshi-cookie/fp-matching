@@ -9,6 +9,7 @@ class ReservableTable < ApplicationRecord
   validate :validate_that_time_table_is_available
   validate :validate_that_reservable_date_is_before_today
 
+  before_destroy :prevent_destroy
   private
 
   def validate_that_time_table_is_available
@@ -19,5 +20,12 @@ class ReservableTable < ApplicationRecord
 
   def validate_that_reservable_date_is_before_today
     errors.add(:date, ': 過去の日付は使用できません') if date.present? && date < Date.today
+  end
+
+  def prevent_destroy
+    if reservation
+      errors.add(:base, '予約があるため削除できません')
+      throw(:abort)
+    end
   end
 end

@@ -8,7 +8,7 @@ class PlannersController < ApplicationController
     if @planner.save
       planner_log_in @planner
       flash[:success] = '登録完了しました！'
-      redirect_to root_path
+      redirect_to planners_mypage_path
     else
       flash.now[:danger] = @planner.errors.full_messages.join('。')
       render 'new'

@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create]
   resources :planners, only: %i[new create show index]
   resources :planner_sessions, only: %i[new create]
-  resources :reservable_tables, only: %i[new create]
+  resources :reservable_tables, only: %i[new create destroy]
   resources :reservations, only: %i[create]
 end

@@ -18,16 +18,18 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <ul class="list-group">
-      <% if @reservable_tables.present? %>
+      <% if @reservable_tables.any? %>
         <% @reservable_tables.each do |reservable_table| %>
           <li class="list-group-item"><%= reservable_table.planner.name %></li>
           <li class="list-group-item">
           <%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
           <%= reservable_table.time_table.time_range_text %>
-          <%= link_to "（削除）", reservable_table_path(reservable_table), method: :delete, data:{confirm: "削除しますか？"} %>
+          <%= link_to "（削除）", reservation_url(reservable_table.reservation), method: :delete, data:{confirm: "削除しますか？"} %>
           </li>
           <br>
         <% end %>
+        <% else %>
+          <p class="text-center">予約はありません</p>
       <% end %>
     </ul>
   </div>

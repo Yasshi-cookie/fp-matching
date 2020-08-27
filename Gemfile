@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 # Use active hash
 gem 'active_hash', '~> 2.3.0'
 gem 'business_time'
+gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -33,5 +33,8 @@ module FpMatching
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.i18n.available_locales = [:ja, :en]
+    I18n.config.available_locales = [:ja, :en]
+    I18n.default_locale = :ja
   end
 end

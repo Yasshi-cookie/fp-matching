@@ -1,13 +1,9 @@
+<% provide :mode, "planner" %>
 <h1>空き時間の登録フォーム</h1>
-<p>下記から空き時間を選択してください</p>
-
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Log out", planner_logout_path, method: :delete %></li>
-    </ul>
-  </div>
-</nav>
+<div class="center">
+<h3>下記から空き時間を選択してください</h3>
+</div>
+<br>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @reservable_table, url: reservable_tables_path, method: :post, local: true do |f| %>
@@ -16,5 +12,25 @@
       <%= f.collection_select :time_table_id, TimeTable.all, :id, :time_range_text, prompt: "--", class: 'form-control' %>
       <%= f.submit "空き時間を登録する", class: "btn btn-primary" %>
     <% end %>
+  </div>
+</div>
+<br>
+<div class="center">
+<h3>現在登録中の空き時間</h3>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul class="list-group">
+      <% @reservable_tables.each do |reservable_table| %>
+        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
+        <%= reservable_table.time_table.time_range_text %>
+        <% if reservable_table.reservation.nil? %>
+          <%= link_to "（削除）", reservable_table_path(reservable_table), method: :delete, data:{confirm: "削除しますか？"} %>
+        <% end %>
+        </li>
+        <br>
+      <% end %>
+    </ul>
   </div>
 </div>

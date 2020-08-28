@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign up') %>
 <h1>FP情報登録ページ</h1>
-<p>ここにプランナーの名前、メールアドレス、パスワードを入力してしてください。</p>
+<p class="text-center">ここにプランナーの名前、メールアドレス、パスワードを入力してしてください。</p>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -15,7 +15,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "登録する", class: "btn btn-primary" %>

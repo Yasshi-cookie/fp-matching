@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? && customer?(yield(:mode)) %>
+          <li><%= link_to "マイページ（カスタマー）", customers_mypage_path %>
+          <li><%= link_to "ログアウト（カスタマー）", logout_path, method: :delete %></li>
+        <% end %>
+        <% if planner_logged_in? && planner?(yield(:mode)) %>
+          <li><%= link_to "マイページ（FP）", planners_mypage_path %>
+          <li><%= link_to "ログアウト（FP）", planner_logout_path, method: :delete %></li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container">
       <!-- Customer/Plannerアカウント登録成功時にメッセージを表示する -->
       <% flash.each do |message_type, message| %>

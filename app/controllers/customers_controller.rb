@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
       log_in @customer
 
       flash[:success] = '登録完了しました！'
-      redirect_to root_path
+      redirect_to customers_mypage_path
     else
       flash.now[:danger] = @customer.errors.full_messages.join(',')
       render 'new'

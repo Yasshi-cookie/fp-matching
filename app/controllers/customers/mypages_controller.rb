@@ -4,7 +4,7 @@ module Customers
 
     def show
       @reservable_tables = current_customer
-                            .reservable_tables.where('date >= ?', Date.current).order(date: :asc)
+                            .reservable_tables.eager_load(:reservation).where('date >= ?', Date.current).order(date: :asc)
     end
   end
 end

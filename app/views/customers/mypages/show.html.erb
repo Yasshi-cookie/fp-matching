@@ -1,12 +1,6 @@
+<% provide :mode, "customer" %>
 <% provide(:title, 'Customer page') %>
 <h1><%= current_customer.name if current_customer.present? %>さんのマイページ</h1>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Log out", logout_path, method: :delete %></li>
-    </ul>
-  </div>
-</nav>
 <div class="center">
   <%= link_to "FPの空き時間一覧ページ", planners_path, class: "btn btn-lg btn-primary" %>
 </div>
@@ -18,13 +12,18 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <ul class="list-group">
-      <% if @reservable_tables.present? %>
+      <% if @reservable_tables.any? %>
         <% @reservable_tables.each do |reservable_table| %>
           <li class="list-group-item"><%= reservable_table.planner.name %></li>
-          <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
-          <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+          <li class="list-group-item">
+          <%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
+          <%= reservable_table.time_table.time_range_text %>
+          <%= link_to "（削除）", reservation_url(reservable_table.reservation), method: :delete, data:{confirm: "削除しますか？"} %>
+          </li>
           <br>
         <% end %>
+      <% else %>
+          <p class="text-center">予約はありません</p>
       <% end %>
     </ul>
   </div>

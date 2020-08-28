@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      reservable_table:
+        date: 日付
+        time_table_id: 時間枠
+      customer:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      planner:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      reservation:
+        reservable_table_id: 予約枠

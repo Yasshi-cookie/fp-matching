@@ -1,3 +1,4 @@
+<% provide :mode, "planner" %>
 <% provide(:title, 'Planner page') %>
 <h1><%=current_planner.name if current_planner.present?%>さんのマイページ</h1>
 <div class="center">
@@ -13,8 +14,8 @@
     <ul class="list-group">
       <% @reservable_tables.each do |reservable_table| %>
         <li class="list-group-item"><%= reservable_table.reservation.customer.name %></li>
-        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
-        <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
+        <%= reservable_table.time_table.time_range_text %></li>
         <br>
       <% end %>
     </ul>

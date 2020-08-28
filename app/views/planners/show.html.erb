@@ -1,6 +1,7 @@
+<% provide :mode, "customer" %>
 <div class="container">
   <ol class="breadcrumb">
-    <li><%= link_to "プランナー一覧", planners_path %></li>
+    <li><%= link_to "FP一覧", planners_path %></li>
     <li class="active"><%= @planner.name %></li>
   </ol>
 </div>
@@ -9,8 +10,10 @@
   <div class="col-md-6 col-md-offset-3">
     <ul class="list-group">
       <% @reservable_tables.each do |reservable_table| %>
-        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
-        <li class="list-group-item"><%= reservable_table.time_table.time_range_text %></li>
+        <li class="list-group-item">
+        <%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
+        <%= reservable_table.time_table.time_range_text %>
+        </li>
         <li class="list-group-item"><%= link_to "予約する", reservations_path(reservation: {reservable_table_id: reservable_table.id}), method: :post, class: "btn btn-primary" %></li>
         <br>
       <% end %>

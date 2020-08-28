@@ -1,3 +1,4 @@
+<% provide :mode, "planner" %>
 <h1>空き時間の登録フォーム</h1>
 <div class="center">
 <h3>下記から空き時間を選択してください</h3>
@@ -22,8 +23,7 @@
   <div class="col-md-6 col-md-offset-3">
     <ul class="list-group">
       <% @reservable_tables.each do |reservable_table| %>
-        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %></li>
-        <li class="list-group-item">
+        <li class="list-group-item"><%= reservable_table.date.strftime("%Y年 %m月 %d日") %>
         <%= reservable_table.time_table.time_range_text %>
         <% if reservable_table.reservation.nil? %>
           <%= link_to "（削除）", reservable_table_path(reservable_table), method: :delete, data:{confirm: "削除しますか？"} %>

@@ -15,19 +15,27 @@
           <div class="row">
             <div class="col-sm-6">
               <p class=text-center>お客様はこちらから</p>
+              <% if logged_in? %>
+              <%= link_to "マイページ", 'customers/mypage', class: "btn btn-lg btn-primary" %>
+              <% else %>
               <%= link_to "お客様用アカウント登録ページ", 'customers/new', class: "btn btn-lg btn-primary" %>
               <br>
               <br>
               <%= link_to "お客様用ログインページ", 'sessions/new', class: "btn btn-lg btn-primary" %>
+              <% end %>
               <br>
               <br>
             </div>
             <div class="col-sm-6">
               <p class=text-center>FPの方はこちらから</p>
+              <% if planner_logged_in? %>
+              <%= link_to "マイページ", 'planners/mypage', class: "btn btn-lg btn-primary" %>
+              <% else %>
               <%= link_to "FP用アカウント登録ページ", 'planners/new', class: "btn btn-lg btn-primary" %>
               <br>
               <br>
               <%= link_to "FP用ログインページ", 'planner_sessions/new', class: "btn btn-lg btn-primary" %>
+              <% end %>
               <br>
               <br>
             </div>
